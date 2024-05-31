@@ -1,0 +1,28 @@
+{
+    "name": "neokofg/clm-cli",
+    "description": "CLI for Compact Layer Modules Laravel Architecture",
+    "type": "library",
+    "license": "MIT",
+    "autoload": {
+        "psr-4": {
+            "Neokofg\\ClmCli\\": "src/"
+        }
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Neokofg\\ClmCli\\ClmCliServiceProvider"
+            ]
+        }
+    },
+    "authors": [
+        {
+            "name": "neoko",
+            "email": "33611354+neokofg@users.noreply.github.com"
+        }
+    ],
+    "minimum-stability": "stable",
+    "require": {
+        "illuminate/console": "^11.9"
+    }
+}

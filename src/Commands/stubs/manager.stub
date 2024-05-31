@@ -1,0 +1,58 @@
+<?php
+
+namespace Modules\{{model}}\{{name}};
+
+use Exception;
+
+class {{name}}Exception extends Exception
+{
+}
+
+use App\Http\Controllers\Controller;
+use Symfony\Component\HttpFoundation\JsonResponse;
+use Symfony\Component\HttpFoundation\Response;
+
+class {{name}}Controller
+{
+    public function __construct(
+
+    )
+    {
+    }
+
+    public function __invoke(): JsonResponse
+    {
+
+    }
+}
+
+class {{name}}UseCase
+{
+    public function __construct(
+        private {{name}}Repository $repository
+    )
+    {
+    }
+
+    /**
+     * @throws {{name}}Exception
+     */
+    public function execute()
+    {
+        try {
+            return DB::transaction(function () use () {
+                return $this->repository->make();
+            });
+        } catch (Throwable $exception) {
+            throw new {{name}}Exception('Service unavailable', Response::HTTP_SERVICE_UNAVAILABLE, $exception)
+        }
+    }
+}
+
+class {{name}}Repository
+{
+    public function make()
+    {
+
+    }
+}
