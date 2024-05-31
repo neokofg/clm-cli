@@ -19,10 +19,10 @@ class MakeManagerCommand extends Command
     {
         $name = $this->argument('name');
         $modelName = $this->option('model') ?? $name;
-        $modulePath = base_path("Modules/{$modelName}/{$name}");
+        $modulePath = base_path("App/Modules/{$modelName}/Managers/");
 
         if (File::exists($modulePath)) {
-            $this->error("Модуль {$name} уже существует!");
+            $this->error("Manager {$name} already exists!");
             return;
         }
 
@@ -31,8 +31,8 @@ class MakeManagerCommand extends Command
         $managerTemplate = file_get_contents(__DIR__ . '/stubs/manager.stub');
         $managerTemplate = str_replace('{{name}}', $name, $managerTemplate);
         $managerTemplate = str_replace('{{model}}', $modelName, $managerTemplate);
-        file_put_contents("{$modulePath}/{$modelName}/{$name}Manager.php", $managerTemplate);
+        file_put_contents("{$modulePath}/{$name}Manager.php", $managerTemplate);
 
-        $this->info("Модуль {$name} успешно создан.");
+        $this->info("Manager {$name} successfully created.");
     }
 }

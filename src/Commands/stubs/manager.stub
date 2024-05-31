@@ -1,28 +1,29 @@
-<?php
+<?php declare(strict_types = 1);
 
-namespace Modules\{{model}}\{{name}};
+namespace App\Modules\{{model}}\Managers;
 
 use Exception;
-
 class {{name}}Exception extends Exception
 {
 }
 
-use App\Http\Controllers\Controller;
-use Symfony\Component\HttpFoundation\JsonResponse;
+use \Throwable;
+use Illuminate\Support\Facades\DB;
 use Symfony\Component\HttpFoundation\Response;
 
 class {{name}}Controller
 {
     public function __construct(
-
+        private {{name}}UseCase $useCase
     )
     {
     }
-
-    public function __invoke(): JsonResponse
+    /**
+     * @throws {{name}}Exception
+     */
+    public function __invoke()
     {
-
+        $response = $this->useCase->execute();
     }
 }
 
@@ -40,11 +41,11 @@ class {{name}}UseCase
     public function execute()
     {
         try {
-            return DB::transaction(function () use () {
+            return DB::transaction(function () {
                 return $this->repository->make();
             });
         } catch (Throwable $exception) {
-            throw new {{name}}Exception('Service unavailable', Response::HTTP_SERVICE_UNAVAILABLE, $exception)
+            throw new {{name}}Exception('Service unavailable', Response::HTTP_SERVICE_UNAVAILABLE, $exception);
         }
     }
 }
