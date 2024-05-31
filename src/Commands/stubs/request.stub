@@ -1,0 +1,31 @@
+<?php declare(strict_types=1);
+
+namespace App\Modules\{{model}}\Requests;
+
+use Illuminate\Foundation\Http\FormRequest;
+
+class {{name}}Request extends FormRequest
+{
+    public function rules(): array
+    {
+        return [
+
+        ];
+    }
+
+    public function getValidated(): {{name}}DTO
+    {
+        return new {{name}}DTO(
+            ...$this->validated()
+        );
+    }
+}
+
+readonly class {{name}}DTO
+{
+    public function __construct(
+
+    )
+    {
+    }
+}

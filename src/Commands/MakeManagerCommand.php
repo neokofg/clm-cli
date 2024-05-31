@@ -8,7 +8,7 @@ use Illuminate\Support\Facades\File;
 class MakeManagerCommand extends Command
 {
     protected $signature = 'make:manager {name} {--model=}';
-    protected $description = 'Создает новый менеджер';
+    protected $description = 'Creates new manager';
 
     public function __construct()
     {

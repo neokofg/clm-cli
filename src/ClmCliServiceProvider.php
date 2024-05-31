@@ -4,6 +4,7 @@ namespace Neokofg\ClmCli;
 
 use Illuminate\Support\ServiceProvider;
 use Neokofg\ClmCli\Commands\MakeManagerCommand;
+use Neokofg\ClmCli\Commands\MakeRequestCommand;
 
 class ClmCliServiceProvider extends ServiceProvider
 {
@@ -11,6 +12,7 @@ class ClmCliServiceProvider extends ServiceProvider
     {
         $this->commands([
             MakeManagerCommand::class,
+            MakeRequestCommand::class
         ]);
     }
 
