@@ -23,6 +23,7 @@
     ],
     "minimum-stability": "stable",
     "require": {
-        "illuminate/console": "^11.9"
+        "php": "^8.0",
+        "illuminate/console": "^10.0 || ^11.0"
     }
 }
