@@ -21,7 +21,7 @@ class MakeManagerCommand extends Command
         $modelName = $this->option('model') ?? $name;
         $modulePath = base_path("App/Modules/{$modelName}/Managers/");
 
-        if (File::exists($modulePath)) {
+        if (File::exists($modulePath.$name.'Manager.php')) {
             $this->error("Manager {$name} already exists!");
             return;
         }

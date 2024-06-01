@@ -8,5 +8,5 @@ php artisan make:manager --model=User
 ```
 ### Create a request
 ```bash
-php artisan make:request --model=User
+php artisan make:clm-request --model=User
 ```

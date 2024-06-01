@@ -7,7 +7,7 @@ use Illuminate\Support\Facades\File;
 
 class MakeRequestCommand extends Command
 {
-    protected $signature = 'make:request {name} {--model=}';
+    protected $signature = 'make:clm-request {name} {--model=}';
     protected $description = 'Creates new request';
 
     public function __construct()
@@ -21,7 +21,7 @@ class MakeRequestCommand extends Command
         $modelName = $this->option('model') ?? $name;
         $modulePath = base_path("App/Modules/{$modelName}/Requests/");
 
-        if (File::exists($modulePath)) {
+        if (File::exists($modulePath.$name.'Request.php')) {
             $this->error("Request {$name} already exists!");
             return;
         }
