@@ -26,7 +26,7 @@ class MakeRequestCommand extends Command
             return;
         }
 
-        File::makeDirectory($modulePath, 0755, true);
+        File::makeDirectory($modulePath, 0755, true, true);
 
         $requestTemplate = file_get_contents(__DIR__ . '/stubs/request.stub');
         $requestTemplate = str_replace('{{name}}', $name, $requestTemplate);

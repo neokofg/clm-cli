@@ -26,7 +26,7 @@ class MakeManagerCommand extends Command
             return;
         }
 
-        File::makeDirectory($modulePath, 0755, true);
+        File::makeDirectory($modulePath, 0755, true, true);
 
         $managerTemplate = file_get_contents(__DIR__ . '/stubs/manager.stub');
         $managerTemplate = str_replace('{{name}}', $name, $managerTemplate);
