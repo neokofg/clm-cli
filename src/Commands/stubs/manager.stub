@@ -11,7 +11,7 @@ use \Throwable;
 use Illuminate\Support\Facades\DB;
 use Symfony\Component\HttpFoundation\Response;
 
-class {{name}}Controller
+class {{name}}Manager
 {
     public function __construct(
         private {{name}}UseCase $useCase
